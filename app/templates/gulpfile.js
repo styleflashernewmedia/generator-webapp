@@ -8,7 +8,14 @@ const wiredep = require('wiredep').stream;
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
-gulp.task('styles', () => {<% if (includeSass) { %>
+var scsslint = require('gulp-scss-lint');
+
+gulp.task('scss-lint', function() {
+  return gulp.src('app/scss/**/*.scss')
+    .pipe(scsslint());
+});
+
+gulp.task('styles', ['scss-lint'], () => {<% if (includeSass) { %>
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())

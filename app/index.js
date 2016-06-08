@@ -236,6 +236,15 @@ module.exports = generators.Base.extend({
           includeBootstrap: this.includeBootstrap
         }
       );
+
+      this.fs.copy(
+        this.templatePath('themes'),
+        this.destinationPath('app/styles/themes/'));
+
+      this.fs.copy(
+        this.templatePath('plugins'),
+        this.destinationPath('app/styles/plugins/'));
+
     },
 
     scripts: function () {
