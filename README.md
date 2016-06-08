@@ -1,6 +1,6 @@
 # Web app generator [![Build Status](https://secure.travis-ci.org/yeoman/generator-webapp.svg?branch=master)](http://travis-ci.org/yeoman/generator-webapp) [![Gitter](https://img.shields.io/badge/Gitter-Join_the_Yeoman_chat_%E2%86%92-00d06f.svg)](https://gitter.im/yeoman/yeoman)
 
-> [Yeoman](http://yeoman.io) generator that scaffolds out a front-end web app using [gulp](http://gulpjs.com/) for the build process
+> [Yeoman](http://yeoman.io) CUSTOMIZED generator that scaffolds out a front-end web app using [gulp](http://gulpjs.com/) for the build process
 
 ![](screenshot.png)
 
@@ -32,6 +32,7 @@ If your favorite feature is missing and you really need Ruby Sass, you can alway
 
 - Install dependencies: `npm install --global yo gulp-cli bower`
 - Install the generator: `npm install --global generator-webapp`
+- For scss-lint you need to install: `gem install scss_lint`
 - Run `yo webapp` to scaffold your webapp
 - Run `gulp serve` to preview and watch for changes
 - Run `bower install --save <package>` to install frontend dependencies
