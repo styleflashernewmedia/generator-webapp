@@ -238,12 +238,32 @@ module.exports = generators.Base.extend({
       );
 
       this.fs.copy(
+        this.templatePath('abstracts'),
+        this.destinationPath('app/styles/abstracts/'));
+
+      this.fs.copy(
+        this.templatePath('base'),
+        this.destinationPath('app/styles/base/'));
+
+      this.fs.copy(
+        this.templatePath('components'),
+        this.destinationPath('app/styles/components/'));
+
+      this.fs.copy(
+        this.templatePath('layout'),
+        this.destinationPath('app/styles/layout/'));
+
+      this.fs.copy(
+        this.templatePath('pages'),
+        this.destinationPath('app/styles/pages/'));
+
+      this.fs.copy(
         this.templatePath('themes'),
         this.destinationPath('app/styles/themes/'));
 
       this.fs.copy(
-        this.templatePath('plugins'),
-        this.destinationPath('app/styles/plugins/'));
+        this.templatePath('vendor'),
+        this.destinationPath('app/styles/vendor/'));
 
     },
 
