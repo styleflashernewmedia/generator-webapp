@@ -1,6 +1,6 @@
 {
   "name": "generator-webappsf",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Scaffold out a front-end web app based on the yeoman webapp. we added linting for scss.",
   "license": "BSD-2-Clause",
   "author": "The Yeoman Team - modified by Styleflasher",
