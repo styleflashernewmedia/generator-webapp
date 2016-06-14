@@ -153,7 +153,7 @@ gulp.task('serve', ['styles', 'fonts'], () => {
   });
 
   gulp.watch([
-    'app/*.html',
+    'app/**/*.html',
 <% if (!includeBabel) { -%>
     'app/scripts/**/*.js',
 <% } -%>
