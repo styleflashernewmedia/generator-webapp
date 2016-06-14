@@ -318,7 +318,14 @@ module.exports = generators.Base.extend({
 
     misc: function () {
       mkdirp('app/images');
+      mkdirp('app/images/svg_original');
+      mkdirp('doc');
       mkdirp('app/fonts');
+
+      this.fs.copy(
+        this.templatePath('README.md'),
+        this.destinationPath('doc/README.md'));
+
     }
   },
 

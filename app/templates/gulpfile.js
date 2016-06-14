@@ -10,6 +10,33 @@ const reload = browserSync.reload;
 
 var scsslint = require('gulp-scss-lint');
 
+var svgSprite = require('gulp-svg-sprite');
+var plumber = require('gulp-plumber');
+
+gulp.task('svg', function() {
+  return gulp.src('app/images/svg_original/**/*.svg')
+    .pipe(plumber())
+    .pipe(svgSprite( {
+      "dest": "app/images/svg",
+      "mode": {
+        "css": true,
+        "scss": true,
+        "view": {         // Activate the «view» mode
+            bust        : false,
+            dest: '../../styles/base',
+            sprite: '../../../app/images/svg/view/sprite.svg',
+            render      : {
+                scss    : true      // Activate Sass output (with default options)
+            },
+            example: true
+        },
+        "defs": true,
+        "symbol": true,
+        "stack": true
+      }} )).on('error', function(error){ console.log(error); })
+    .pipe(gulp.dest('app/images/svg'));
+});
+
 gulp.task('scss-lint', function() {
   return gulp.src('app/scss/**/*.scss')
     .pipe(scsslint());
@@ -110,7 +137,7 @@ gulp.task('extras', () => {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 <% if (includeBabel) { -%>
-gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
+gulp.task('serve', ['styles', 'scripts', 'fonts', 'svg'], () => {
 <% } else { -%>
 gulp.task('serve', ['styles', 'fonts'], () => {
 <% } -%>
@@ -198,7 +225,7 @@ gulp.task('wiredep', () => {<% if (includeSass) { %>
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras', 'svg' ], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
